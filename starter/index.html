@@ -1,72 +1,78 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-
+    <meta charset="UTF-8">
     <title>Complete a Form</title>
 
     <style>
-
-        /* =========================================
-           COMPLETE THE CSS
-           ========================================= */
-
-        * {
-            /* Reset margin and padding */
-        }
-
         body {
-            /* Set font */
-            /* Set width */
-            /* Center the page */
-            /* Add padding */
-            /* Add border */
+            font-family: Arial, Helvetica, sans-serif;
+            width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
 
         h1 {
-            /* Set color */
-            /* Set font size */
+            color: #333;
+            text-align: center;
         }
 
-        h2 {
-            /* Set font size */
-            /* Set vertical padding */
+        form {
+            background-color: white;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
 
         label {
-            /* Set color */
-            /* Float labels */
-            /* Set width */
-            /* Make labels bold */
-            /* Align text */
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
-        input {
-            /* Set width */
-            /* Set margin */
+        input[type="email"],
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #999;
+            border-radius: 4px;
         }
 
         input[type="checkbox"] {
-            /* Set checkbox width */
+            margin-right: 8px;
         }
 
-        input:required,
-        input:invalid {
-            /* Remove browser shadow */
+        .checkbox-label {
+            display: block;
+            font-weight: normal;
+            margin: 8px 0;
         }
 
-        #button,
-        #reset {
-            /* Set width */
-            /* Set background */
-            /* Add shadow */
+        .buttons {
+            margin-top: 20px;
         }
 
-        #button {
-            /* Position submit button */
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #777;
+            color: white;
+        }
     </style>
 </head>
 
@@ -74,43 +80,80 @@
 
     <h1>Please complete our survey</h1>
 
-    <form name="myform" action="survey_data.html" method="get">
+    <form method="get" action="survey_data.html">
 
-        <h2>Contact information</h2>
+        <h2>Contact Information</h2>
 
-        <!-- Email field -->
+        <label for="email">Email address:</label>
+        <input type="email"
+               id="email"
+               name="email"
+               required
+               autofocus>
 
-        <!-- First name field -->
+        <label for="firstName">First name:</label>
+        <input type="text"
+               id="firstName"
+               name="firstName"
+               required>
 
-        <!-- Last name field -->
-
-
-        <h2>Geographic information</h2>
-
-        <!-- State field -->
-
-        <!-- Zip code field -->
-
-
-        <h2>How did you hear about us?</h2>
-
-        <!-- Web Search checkbox -->
-
-        <!-- Facebook checkbox -->
-
-        <!-- Twitter checkbox -->
-
-        <!-- Email message checkbox -->
+        <label for="lastName">Last name:</label>
+        <input type="text"
+               id="lastName"
+               name="lastName"
+               required>
 
 
-        <h2>Thank you for taking our survey!</h2>
+        <h2>Geographic Information</h2>
 
-        <!-- Submit button -->
+        <label for="state">State:</label>
+        <input type="text"
+               id="state"
+               name="state"
+               required
+               pattern="[A-Za-z]{2}"
+               placeholder="Two characters"
+               title="Enter a two-letter state abbreviation">
 
-        <!-- Reset button -->
+        <label for="zip">Zip code:</label>
+        <input type="text"
+               id="zip"
+               name="zip"
+               required
+               pattern="[0-9]{5}"
+               placeholder="Five digits"
+               title="Enter exactly five digits">
+
+
+        <h2>Survey Options</h2>
+
+        <label class="checkbox-label">
+            <input type="checkbox" name="source" value="Web Search">
+            Web Search
+        </label>
+
+        <label class="checkbox-label">
+            <input type="checkbox" name="source" value="Facebook">
+            Facebook
+        </label>
+
+        <label class="checkbox-label">
+            <input type="checkbox" name="source" value="Twitter">
+            Twitter
+        </label>
+
+        <label class="checkbox-label">
+            <input type="checkbox" name="source" value="Email message">
+            Email message
+        </label>
+
+
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
 
     </form>
 
 </body>
-
 </html>
